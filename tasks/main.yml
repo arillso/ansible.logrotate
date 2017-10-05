@@ -1,2 +1,47 @@
 ---
 # tasks file for sbaerlocher.logrotate
+
+- name: add OS specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - files:
+        - "{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
+        - "{{ ansible_distribution }}.yml"
+        - "{{ ansible_os_family }}.yml"
+        - "defaults.yml"
+      paths:
+        -  "vars"
+  tags:
+    - configuration
+    - packages
+
+- name: install logrotate
+  become: true
+  package: name={{ logrotate_package }} state=latest
+  notify: enabled ntp
+  tags:
+    - packages
+
+- name: Create logrotate configuration file
+  become: yes
+  template:
+    src: logrotate.conf.j2
+    dest: /etc/logrotate.conf
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - configuration
+
+- name: Create logrotate application configuration files
+  become: yes
+  template:
+    src: application.j2
+    dest: "{{ logrotate_include_dir }}/{{ item.name }}"
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - "{{ logrotate_applications }}"
+  tags:
+    - configuration
