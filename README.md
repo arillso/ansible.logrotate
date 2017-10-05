@@ -1,6 +1,9 @@
 # Ansible Role: logrotate
+[![Build Status](https://travis-ci.org/sbaerlocher/ansible.logrotate.svg?branch=master)](https://travis-ci.org/sbaerlocher/ansible.logrotate)
 
 ## Description
+
+Installs and configures logrotate
 
 ## Installation
 
@@ -10,14 +13,20 @@ $ ansible-galaxy install sbaerlocher.logrotate
 
 ## Requirements
 
+None
+
 ## Role Variables
 
 | Variable             | Default     | Comments (type)                                   |
 | :---                 | :---        | :---                                              |
-| | | |
-| | | |
+| logrotate_options      | [ 'weekly', 'su root syslog', 'rotate 4', 'create' ]                                                | List of default options                  |
+| logrotate_wtmp         | { logs: ['/var/log/wtmp'], options: ['missingok', 'monthly', 'create 0664 root utmp', 'rotate 1'] } | Logrotate options for wtmp               |
+| logrotate_btmp         | { logs: ['/var/log/btmp'], options: ['missingok', 'monthly', 'create 0660 root utmp', 'rotate 1'] } | Logrotate options for btmp               |
+| logrotate_applications | []                                                                                                  | Logrotate options for other applications |
 
 ## Dependencies
+
+None
 
 ## Example Playbook
 
@@ -28,6 +37,10 @@ $ ansible-galaxy install sbaerlocher.logrotate
 ```
 
 ## Changelog
+
+### 1.0
+
+* inital role
 
 ## Author
 
