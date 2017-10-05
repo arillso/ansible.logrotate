@@ -1,2 +1,29 @@
 ---
 # defaults file for sbaerlocher.logrotate
+
+logrotate_options:
+- weekly
+- su root syslog
+- rotate 4
+- create
+- dateext
+
+logrotate_wtmp:
+  logs:
+  - /var/log/wtmp
+  options:
+  - missingok
+  - monthly
+  - create 0664 root utmp
+  - rotate 1
+
+logrotate_btmp:
+  logs:
+  - /var/log/btmp
+  options:
+  - missingok
+  - monthly
+  - create 0660 root utmp
+  - rotate 1
+
+logrotate_applications: []
