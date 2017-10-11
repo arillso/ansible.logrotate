@@ -23,7 +23,7 @@
     - packages
 
 - name: Create logrotate configuration file
-  become: yes
+  become: true
   template:
     src: logrotate.conf.j2
     dest: /etc/logrotate.conf
@@ -34,7 +34,7 @@
     - configuration
 
 - name: Create logrotate application configuration files
-  become: yes
+  become: true
   template:
     src: application.j2
     dest: "{{ logrotate_include_dir }}/{{ item.name }}"
