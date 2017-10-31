@@ -1,5 +1,5 @@
 # Ansible Role: logrotate
-[![Build Status](https://travis-ci.org/sbaerlocher/ansible.logrotate.svg?branch=master)](https://travis-ci.org/sbaerlocher/ansible.logrotate)
+[![Build Status](https://travis-ci.org/arillso/ansible.logrotate.svg?branch=master)](https://travis-ci.org/arillso/ansible.logrotate)
 
 ## Description
 
@@ -8,7 +8,7 @@ Installs and configures logrotate
 ## Installation
 
 ```
-$ ansible-galaxy install sbaerlocher.logrotate
+$ ansible-galaxy install arillso.logrotate
 ```
 
 ## Requirements
@@ -33,10 +33,14 @@ None
 ```yml
 - hosts: all
   roles:
-     - sbaerlocher.logrotate
+     - arillso.logrotate
 ```
 
 ## Changelog
+
+### 1.2
+
+* rename role
 
 ### 1.1
 
