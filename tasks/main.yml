@@ -1,5 +1,5 @@
 ---
-# tasks file for sbaerlocher.logrotate
+# tasks file for arillso.logrotate
 
 - name: add OS specific variables
   include_vars: "{{ item }}"
