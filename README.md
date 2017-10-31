@@ -38,6 +38,10 @@ None
 
 ## Changelog
 
+### 1.2
+
+* rename role
+
 ### 1.1
 
 * add become support
