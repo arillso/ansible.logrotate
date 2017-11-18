@@ -1,3 +1,5 @@
+---
+
 galaxy_info:
   author: arillso
   license: MIT
@@ -12,7 +14,7 @@ galaxy_info:
       versions:
         - trusty
         - xenial
-    - name: CentOS
+    - name: EL
       versions:
         - 6
         - 7

@@ -1,5 +1,6 @@
 # Ansible Role: logrotate
-[![Build Status](https://travis-ci.org/arillso/ansible.logrotate.svg?branch=master)](https://travis-ci.org/arillso/ansible.logrotate)
+
+[![Build Status](https://travis-ci.org/arillso/ansible.logrotate.svg?branch=master)](https://travis-ci.org/arillso/ansible.logrotate) [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://sbaerlo.ch/licence) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-logrotate-blue.svg)](https://galaxy.ansible.com/arillso/logrotate)
 
 ## Description
 
@@ -7,8 +8,8 @@ Installs and configures logrotate
 
 ## Installation
 
-```
-$ ansible-galaxy install arillso.logrotate
+```bash
+  ansible-galaxy install arillso.logrotate
 ```
 
 ## Requirements
@@ -53,7 +54,7 @@ None
 ## Author
 
 * [Simon Bärlocher](https://sbaerlocher.ch)
- 
+
 ## License
 
 This project is under the MIT License. See the [LICENSE](https://sbaerlo.ch/licence) file for the full license text.

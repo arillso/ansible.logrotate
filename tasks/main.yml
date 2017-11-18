@@ -10,14 +10,15 @@
         - "{{ ansible_os_family }}.yml"
         - "defaults.yml"
       paths:
-        -  "vars"
+        - "vars"
   tags:
     - configuration
     - packages
 
 - name: install logrotate
   become: true
-  package: name={{ logrotate_package }} state=latest
+  package:
+    name: "{{ logrotate_package }}"
   notify: enabled ntp
   tags:
     - packages
