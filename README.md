@@ -39,6 +39,10 @@ None
 
 ## Changelog
 
+### 1.3
+
+* new role tests
+
 ### 1.2
 
 * rename role
