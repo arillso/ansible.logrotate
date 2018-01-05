@@ -1,5 +1,8 @@
+---
+
 galaxy_info:
   author: arillso
+  description: installs and configures logrotate
   license: MIT
   min_ansible_version: 2
   platforms:
@@ -12,7 +15,7 @@ galaxy_info:
       versions:
         - trusty
         - xenial
-    - name: CentOS
+    - name: EL
       versions:
         - 6
         - 7
