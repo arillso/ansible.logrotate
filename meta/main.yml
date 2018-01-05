@@ -2,6 +2,7 @@
 
 galaxy_info:
   author: arillso
+  description: installs and configures logrotate
   license: MIT
   min_ansible_version: 2
   platforms:
