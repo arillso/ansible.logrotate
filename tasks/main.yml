@@ -2,15 +2,19 @@
 # tasks file for arillso.logrotate
 
 - name: add OS specific variables
-  include_vars: "{{ item }}"
+  include_vars: "{{ loop_vars }}"
   with_first_found:
     - files:
         - "{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
+        - "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
         - "{{ ansible_distribution }}.yml"
         - "{{ ansible_os_family }}.yml"
+        - "{{ ansible_system }}.yml"
         - "defaults.yml"
       paths:
         - "vars"
+  loop_control:
+    loop_var: loop_vars
   tags:
     - configuration
     - packages

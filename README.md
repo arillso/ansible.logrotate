@@ -39,6 +39,11 @@ None
 
 ## Changelog
 
+### 1.4
+
+* update loop_vars
+* add defaults vars
+
 ### 1.3
 
 * new role tests
