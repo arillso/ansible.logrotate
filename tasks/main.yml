@@ -23,7 +23,6 @@
   become: true
   package:
     name: "{{ logrotate_package }}"
-  notify: enabled ntp
   tags:
     - packages
 
