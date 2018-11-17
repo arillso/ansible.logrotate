@@ -3,7 +3,6 @@
 
 logrotate_options:
   - weekly
-  - su root syslog
   - rotate 4
   - create
   - dateext
