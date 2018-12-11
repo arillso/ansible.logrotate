@@ -1,32 +1,32 @@
 ---
 # tasks file for arillso.logrotate
 
-- name: add OS specific variables
-  include_vars: "{{ loop_vars }}"
+- name: 'add OS specific variables'
+  include_vars: '{{ loop_vars }}'
   with_first_found:
     - files:
-        - "{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
-        - "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
-        - "{{ ansible_distribution }}.yml"
-        - "{{ ansible_os_family }}.yml"
-        - "{{ ansible_system }}.yml"
-        - "defaults.yml"
+        - '{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml'
+        - '{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+        - '{{ ansible_system }}.yml'
+        - 'defaults.yml'
       paths:
-        - "vars"
+        - 'vars'
   loop_control:
     loop_var: loop_vars
   tags:
     - configuration
     - packages
 
-- name: install logrotate
+- name: 'install logrotate packages'
   become: true
   package:
-    name: "{{ logrotate_package }}"
+    name: '{{ logrotate_package }}'
   tags:
     - packages
 
-- name: Create logrotate configuration file
+- name: 'create logrotate configuration file'
   become: true
   template:
     src: logrotate.conf.j2
@@ -37,15 +37,15 @@
   tags:
     - configuration
 
-- name: Create logrotate application configuration files
+- name: 'create logrotate application configuration files'
   become: true
   template:
     src: application.j2
-    dest: "{{ logrotate_include_dir }}/{{ item.name }}"
+    dest: '{{ logrotate_include_dir }}/{{ item.name }}'
     owner: root
     group: root
     mode: 0644
   with_items:
-    - "{{ logrotate_applications }}"
+    - '{{ logrotate_applications }}'
   tags:
     - configuration

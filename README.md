@@ -1,6 +1,6 @@
 # Ansible Role: logrotate
 
-[![Build Status](https://travis-ci.org/arillso/ansible.logrotate.svg?branch=master)](https://travis-ci.org/arillso/ansible.logrotate) [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://sbaerlo.ch/licence) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-logrotate-blue.svg)](https://galaxy.ansible.com/arillso/logrotate)
+[![Build Status](https://img.shields.io/travis-ci/arillso/ansible.logrotate.svg?branch=master&style=popout-square)](https://travis-ci.org/arillso/ansible.logrotate) [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=popout-square)](https://sbaerlo.ch/licence) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-logrotate-blue.svg?style=popout-square)](https://galaxy.ansible.com/arillso/logrotate) [![Ansible Role](https://img.shields.io/ansible/role/d/23110.svg?style=popout-square)](https://galaxy.ansible.com/arillso/logrotate)
 
 ## Description
 
@@ -36,6 +36,35 @@ None
   roles:
      - arillso.logrotate
 ```
+### Example
+
+```yml
+logrotate_applications:
+  - name: zabbix-agent
+    definitions:
+      - logs:
+          - '/var/log/zabbix/zabbix_agentd.log'
+        options:
+          - weekly
+          - rotate 13
+          - compress
+          - delaycompress
+          - missingok
+          - notifempty
+          - create 0640 zabbix zabbix
+  - name: nginx
+    definitions:
+      - logs:
+          - '/var/log/nginx/nginx.log'
+        options:
+          - weekly
+          - rotate 13
+          - compress
+          - delaycompress
+          - missingok
+          - notifempty
+          - create 0640 www-data adm
+```
 
 ## Changelog
 
@@ -70,4 +99,4 @@ This project is under the MIT License. See the [LICENSE](https://sbaerlo.ch/lice
 
 ## Copyright
 
-(c) 2017, Simon Bärlocher
+(c) 2019, Simon Bärlocher
