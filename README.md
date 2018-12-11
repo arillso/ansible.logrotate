@@ -36,6 +36,35 @@ None
   roles:
      - arillso.logrotate
 ```
+### Example
+
+```yml
+logrotate_applications:
+  - name: zabbix-agent
+    definitions:
+      - logs:
+          - '/var/log/zabbix/zabbix_agentd.log'
+        options:
+          - weekly
+          - rotate 13
+          - compress
+          - delaycompress
+          - missingok
+          - notifempty
+          - create 0640 zabbix zabbix
+  - name: nginx
+    definitions:
+      - logs:
+          - '/var/log/nginx/nginx.log'
+        options:
+          - weekly
+          - rotate 13
+          - compress
+          - delaycompress
+          - missingok
+          - notifempty
+          - create 0640 www-data adm
+```
 
 ## Changelog
 
