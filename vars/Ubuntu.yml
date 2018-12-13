@@ -6,6 +6,7 @@ logrotate_options:
   - rotate 4
   - create
   - dateext
+  - su root syslog
 
 logrotate_package: logrotate
 logrotate_include_dir: /etc/logrotate.d
