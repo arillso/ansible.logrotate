@@ -1,12 +1,6 @@
 ---
 # defaults file for arillso.logrotate
 
-logrotate_options:
-  - weekly
-  - rotate 4
-  - create
-  - dateext
-
 logrotate_wtmp:
   logs:
     - /var/log/wtmp
