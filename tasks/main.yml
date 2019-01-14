@@ -23,6 +23,10 @@
   become: true
   package:
     name: '{{ logrotate_package }}'
+    state: present
+  register: register_install_package
+  until: register_install_package is succeeded
+  retries: 3
   tags:
     - packages
 
