@@ -68,6 +68,10 @@ logrotate_applications:
 
 ## Changelog
 
+### 1.4.1
+
+* add Red Hat Support
+
 ### 1.4
 
 * update loop_vars
