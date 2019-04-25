@@ -1,6 +1,6 @@
 # Ansible Role: logrotate
 
-[![Build Status](https://img.shields.io/travis-ci/arillso/ansible.logrotate.svg?branch=master&style=popout-square)](https://travis-ci.org/arillso/ansible.logrotate) [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=popout-square)](https://sbaerlo.ch/licence) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-logrotate-blue.svg?style=popout-square)](https://galaxy.ansible.com/arillso/logrotate) [![Ansible Role](https://img.shields.io/ansible/role/d/23110.svg?style=popout-square)](https://galaxy.ansible.com/arillso/logrotate)
+[![Build Status](https://img.shields.io/travis/arillso/ansible.logrotate.svg?branch=master&style=popout-square)](https://travis-ci.org/arillso/ansible.logrotate) [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=popout-square)](https://sbaerlo.ch/licence) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-logrotate-blue.svg?style=popout-square)](https://galaxy.ansible.com/arillso/logrotate) [![Ansible Role](https://img.shields.io/ansible/role/d/23110.svg?style=popout-square)](https://galaxy.ansible.com/arillso/logrotate)
 
 ## Description
 
@@ -18,8 +18,8 @@ None
 
 ## Role Variables
 
-| Variable             | Default     | Comments (type)                                   |
-| :---                 | :---        | :---                                              |
+| Variable               | Default                                                                                             | Comments (type)                          |
+| :--------------------- | :-------------------------------------------------------------------------------------------------- | :--------------------------------------- |
 | logrotate_options      | [ 'weekly', 'su root syslog', 'rotate 4', 'create' ]                                                | List of default options                  |
 | logrotate_wtmp         | { logs: ['/var/log/wtmp'], options: ['missingok', 'monthly', 'create 0664 root utmp', 'rotate 1'] } | Logrotate options for wtmp               |
 | logrotate_btmp         | { logs: ['/var/log/btmp'], options: ['missingok', 'monthly', 'create 0660 root utmp', 'rotate 1'] } | Logrotate options for btmp               |
@@ -34,8 +34,9 @@ None
 ```yml
 - hosts: all
   roles:
-     - arillso.logrotate
+    - arillso.logrotate
 ```
+
 ### Example
 
 ```yml
@@ -70,32 +71,32 @@ logrotate_applications:
 
 ### 1.4.1
 
-* add Red Hat Support
+- add Red Hat Support
 
 ### 1.4
 
-* update loop_vars
-* add defaults vars
+- update loop_vars
+- add defaults vars
 
 ### 1.3
 
-* new role tests
+- new role tests
 
 ### 1.2
 
-* rename role
+- rename role
 
 ### 1.1
 
-* add become support
+- add become support
 
 ### 1.0
 
-* inital role
+- inital role
 
 ## Author
 
-* [Simon Bärlocher](https://sbaerlocher.ch)
+- [Simon Bärlocher](https://sbaerlocher.ch)
 
 ## License
 
