@@ -1,4 +1,4 @@
-# {{ ansible_managed }}
+{{ ansible_managed | comment }}
 
 {% for definition in item.definitions %}
 {{ definition.logs | join(" ") }} {
