@@ -22,7 +22,7 @@ and [human-readable changelog](https://keepachangelog.com/en/1.0.0/).
 
 - add Red Hat Support
 
-## 1.4
+## 1.4.0
 
 ### Changed
 
@@ -32,13 +32,13 @@ and [human-readable changelog](https://keepachangelog.com/en/1.0.0/).
 
 - add defaults vars
 
-### 1.3.0
+## 1.3.0
 
 ### Changed
 
 - new role tests
 
-### 1.2.0
+## 1.2.0
 
 ### Changed
 
