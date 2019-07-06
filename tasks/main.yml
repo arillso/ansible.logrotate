@@ -1,13 +1,13 @@
 ---
 # tasks file for arillso.logrotate
 
-- name: 'add OS specific variables'
+- name: add OS specific variables
   include_vars: '{{ loop_vars }}'
   with_first_found:
     - files:
-        - '{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml'
-        - '{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml'
-        - '{{ ansible_distribution }}.yml'
+        - '{{ distribution }}-{{ distribution_verion }}.yml'
+        - '{{ distribution }}-{{ distribution_major_version }}.yml'
+        - '{{ distribution }}.yml'
         - '{{ ansible_os_family }}.yml'
         - '{{ ansible_system }}.yml'
         - 'defaults.yml'
@@ -15,6 +15,10 @@
         - 'vars'
   loop_control:
     loop_var: loop_vars
+  vars:
+    distribution: '{{ ansible_distribution }}'
+    distribution_verion: '{{ ansible_distribution_version }}'
+    distribution_major_version: '{{ ansible_distribution_major_version }}'
   tags:
     - configuration
     - packages
@@ -33,8 +37,8 @@
 - name: 'create logrotate configuration file'
   become: true
   template:
-    src: logrotate.conf.j2
-    dest: /etc/logrotate.conf
+    src: 'etc/logrotate.conf.j2'
+    dest: '/etc/logrotate.conf'
     owner: root
     group: root
     mode: 0644
@@ -44,8 +48,8 @@
 - name: 'create logrotate application configuration files'
   become: true
   template:
-    src: application.j2
-    dest: '{{ logrotate_include_dir }}/{{ item.name }}'
+    src: 'etc/logrotate.d/application.j2'
+    dest: '/etc/logrotate.d/{{ item.name }}'
     owner: root
     group: root
     mode: 0644
