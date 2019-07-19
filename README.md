@@ -21,6 +21,7 @@ None
 | Variable               | Default                                                                                             | Comments (type)                          |
 | :--------------------- | :-------------------------------------------------------------------------------------------------- | :--------------------------------------- |
 | logrotate_options      | [ 'weekly', 'su root syslog', 'rotate 4', 'create' ]                                                | List of default options                  |
+| use_hourly_rotation    | false                                                                                               | Enable hourly rotation with cron         |
 | logrotate_wtmp         | { logs: ['/var/log/wtmp'], options: ['missingok', 'monthly', 'create 0664 root utmp', 'rotate 1'] } | Logrotate options for wtmp               |
 | logrotate_btmp         | { logs: ['/var/log/btmp'], options: ['missingok', 'monthly', 'create 0660 root utmp', 'rotate 1'] } | Logrotate options for btmp               |
 | logrotate_applications | []                                                                                                  | Logrotate options for other applications |

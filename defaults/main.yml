@@ -1,6 +1,8 @@
 ---
 # defaults file for arillso.logrotate
 
+use_hourly_rotation: false
+
 logrotate_wtmp:
   logs:
     - /var/log/wtmp
