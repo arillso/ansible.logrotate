@@ -20,17 +20,18 @@ None
 
 ### imclude files
 
-Path to the imclude files
+Path to the imclude files.
 
 ```yml
 logrotate_include_dir: /etc/logrotate.d
 ```
+
 ### logrotate_use_hourly_rotation
 
-Enable hourly rotation with cron   
+Enable hourly rotation with cron.
 
 ```yml
-logrotate_use_hourly_rotation: false 
+logrotate_use_hourly_rotation: false
 ```
 
 ### logrotate options
