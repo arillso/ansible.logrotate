@@ -54,13 +54,8 @@
   tags:
     - configuration
 
-- name: Set logrotate hourly state
-  set_fact:
-    hourly_link_state: link
-  when: use_hourly_rotation
-
 - name: Symlink for hourly rotation
   file:
     path: "/etc/cron.hourly/logrotate"
     src: "/etc/cron.daily/logrotate"
-    state: "{{ hourly_link_state }}"
+    state: "{{ 'link' if logrotate_use_hourly_rotation else 'absent' }}"
