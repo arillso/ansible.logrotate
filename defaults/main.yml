@@ -7,6 +7,9 @@ logrotate_include_dir: /etc/logrotate.d
 # package name to install logrotate.
 logrotate_package: logrotate
 
+# Enable hourly rotation with cron.
+logrotate_use_hourly_rotation: false
+
 # logroate for wtmp
 logrotate_wtmp:
   logs:
