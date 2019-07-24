@@ -1,3 +1,0 @@
----
-# vars file for arillso.logrotate
-hourly_link_state: absent
