@@ -1,12 +1,10 @@
 ---
 # vars file for arillso.logrotate
 
+# List of global options for the different systems.
 logrotate_options:
   - weekly
   - rotate 4
   - create
   - dateext
   - su root syslog
-
-logrotate_package: logrotate
-logrotate_include_dir: /etc/logrotate.d

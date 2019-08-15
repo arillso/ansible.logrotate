@@ -1,45 +1,35 @@
 ---
 language: python
-python: "2.7"
+services: docker
 
-# Use the new container infrastructure
-sudo: false
-
-# Install ansible
-addons:
-  apt:
-    packages:
-      - python-pip
+env:
+  global:
+    - ROLE_NAME: logrotate
+  matrix:
+    - MOLECULE_DISTRO: centos7
+    - MOLECULE_DISTRO: centos6
+    - MOLECULE_DISTRO: ubuntu1804
+    - MOLECULE_DISTRO: debian9
+    - MOLECULE_DISTRO: debian10
 
 install:
-  # Install ansible
-  - pip install ansible
+  - pip install molecule docker
 
-  # Install ansible-lint
-  - pip install ansible-lint
-
-  # Install yamllint
-  - pip install yamllint
-
-  # Install tests rules
-  - git submodule add https://github.com/arillso/tests tests
+  - git clone https://github.com/arillso/tests molecule/default/lint
 
 before_script:
-  # Check ansible version
-  - ansible --version
-
-  # Check ansible-lint version
-  - ansible-lint --version
-
-  # Check ansible-lint version
-  - yamllint --version
+  - cd ../
+  - mv ansible.$ROLE_NAME arillso.$ROLE_NAME
+  - cd arillso.$ROLE_NAME
 
 script:
-  # Ansible Lint check
-  - ansible-lint -R -r tests/ansible-lint/ .
-
-  # YAML Lint check
-  - yamllint -c tests/yaml-lint/yamllint.yml .
+  - molecule test
 
 notifications:
-  webhooks: https://galaxy.ansible.com/api/v1/notifications/
+  webhooks:
+    urls:
+      - https://galaxy.ansible.com/api/v1/notifications/
+    on_success: always
+  email:
+    on_success: never
+    on_failure: always
