@@ -96,16 +96,17 @@ logrotate_applications: []
 The following options are available.
 
 ```yml
-logrotate_applications
-     definitions:
-     - logs:
-       - /var/log/apt/term.log
-       - /var/log/apt/history.log
-       options:
-         - rotate 12
-         - monthly
-         - missingok
-         - notifempty
+logrotate_applications:
+  - name: name-your-log-rotate-application
+    definitions:
+      - logs:
+          - /var/log/apt/term.log
+          - /var/log/apt/history.log
+        options:
+          - rotate 12
+          - monthly
+          - missingok
+          - notifempty
 ```
 
 ## Dependencies

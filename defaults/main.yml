@@ -30,16 +30,18 @@ logrotate_btmp:
     - create 0660 root utmp
     - rotate 1
 
-# More log files can be added that will logorate.
-# The following options are available.
-#      definitions:
-#      - logs:
-#        - /var/log/apt/term.log
-#        - /var/log/apt/history.log
-#        options:
-#          - rotate 12
-#          - monthly
-#          - missingok
-#          - notifempty
-#          - compress
+# More log files can be added that will log rotate.
+# An example of multiple log rotate applications with available settings:
+# logrotate_applications:
+#   - name: name-your-log-rotate-application
+#     definitions:
+#       - logs:
+#           - /var/log/apt/term.log
+#           - /var/log/apt/history.log
+#         options:
+#           - rotate 12
+#           - monthly
+#           - missingok
+#           - notifempty
+#           - compress
 logrotate_applications: []
