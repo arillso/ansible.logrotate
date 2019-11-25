@@ -1,0 +1,38 @@
+---
+
+- name: Check logrotate cron file presence
+  stat:
+    path: >
+      /etc/cron.{{ logrotate_use_hourly_rotation | ternary('daily', 'hourly') }}
+      /logrotate
+  check_mode: false
+  changed_when: false
+  register: old_rotation_file
+
+- name: Copy logrotate file to new cron rotation directory
+  copy:
+    path: "{{ old_rotation_file.path }}"
+    src: >
+      /etc/cron.{{ logrotate_use_hourly_rotation | ternary('hourly', 'daily') }}
+      /logrotate
+  when: old_rotation_file.stat.exists
+
+- name: Remove old logrotate file
+  file:
+    path: "{{ old_rotation_file.path }}"
+    state: absent
+  when: old_rotation_file.stat.exists
+
+- name: Check systemd timer file presence
+  stat:
+    path: /usr/lib/systemd/system/logrotate.timer
+  check_mode: false
+  changed_when: false
+  register: logrotate_timer_file
+
+- name: Set systemd logrotate timer rotation frequency
+  ini_file:
+    path: logrotate_timer_file.stat.path
+    section: Timer
+    option: "{{ logrotate_use_hourly_rotation | ternary('hourly', 'daily') }}"
+  when: logrotate_timer_file.stat.exists
