@@ -1,9 +1,15 @@
 {{ ansible_managed | comment }}
 
 # see "man logrotate" for details
+{% if logrotate_options | length > 0 %}
 {% for option in logrotate_options %}
 {{ option }}
 {% endfor %}
+{% else %}
+{% for option in logrotate_distribution_options | default([]) %}
+{{ option }}
+{% endfor %}
+{% endif %}
 
 # packages drop log rotation information into this directory
 include {{ logrotate_include_dir }}
