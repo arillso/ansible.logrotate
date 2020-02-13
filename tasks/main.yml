@@ -44,18 +44,8 @@
     - configuration
   when: logrotate_global_config | bool
 
-- name: create logrotate application configuration files
-  become: true
-  template:
-    src: 'etc/logrotate.d/application.j2'
-    dest: '/etc/logrotate.d/{{ item.name }}'
-    owner: root
-    group: root
-    mode: 0644
-  with_items:
-    - '{{ logrotate_applications }}'
-  tags:
-    - configuration
+- name: 'create logrotate application configuration files'
+  import_tasks: configure_application.yml
 
 - name: symlink for hourly rotation
   file:
