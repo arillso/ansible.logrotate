@@ -5,6 +5,13 @@
 {% for option in definition.options %}
     {{ option }}
 {% endfor %}
+{% if definition.prerotate|default([]) %}
+    prerotate
+{% for line in definition.prerotate %}
+        {{ line }}
+{% endfor %}
+    endscript
+{% endif %}
 {% if definition.postrotate|default([]) %}
     postrotate
 {% for line in definition.postrotate %}
