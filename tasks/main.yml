@@ -62,4 +62,4 @@
   file:
     path: "/etc/cron.hourly/logrotate"
     src: "/etc/cron.daily/logrotate"
-    state: "{{ 'link' if logrotate_use_hourly_rotation else 'absent' }}"
+    state: "{{ 'link' if logrotate_use_hourly_rotation is defined | default('absent') }}"
