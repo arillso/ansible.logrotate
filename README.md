@@ -60,6 +60,7 @@ logrotate_package: logrotate
 logroate for wtmp
 
 ```yml
+logrotate_wtmp_enable: true
 logrotate_wtmp:
   logs:
     - /var/log/wtmp
@@ -73,6 +74,7 @@ logrotate_wtmp:
 logroate for btmp
 
 ```yml
+logrotate_btmp_enable: true
 logrotate_btmp:
   logs:
     - /var/log/btmp

@@ -15,6 +15,7 @@ logrotate_package: logrotate
 logrotate_use_hourly_rotation: false
 
 # logroate for wtmp
+logrotate_wtmp_enable: true
 logrotate_wtmp:
   logs:
     - /var/log/wtmp
@@ -25,6 +26,7 @@ logrotate_wtmp:
     - rotate 1
 
 # logroate for btmp
+logrotate_btmp_enable: true
 logrotate_btmp:
   logs:
     - /var/log/btmp
