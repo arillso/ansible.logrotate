@@ -34,6 +34,8 @@ logrotate_btmp:
     - create 0660 root utmp
     - rotate 1
 
+logrotate_global_config: True
+
 # More log files can be added that will log rotate.
 # An example of multiple log rotate applications with available settings:
 # logrotate_applications:

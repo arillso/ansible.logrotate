@@ -44,6 +44,7 @@
     mode: 0644
   tags:
     - configuration
+  when: logrotate_global_config | bool
 
 - name: 'create logrotate application configuration files'
   become: true
