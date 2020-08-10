@@ -26,6 +26,14 @@ Path to the imclude files.
 logrotate_include_dir: /etc/logrotate.d
 ```
 
+### logrotate_global_config
+
+Enable global configuration of /etc/logrotate.conf
+
+```yml
+logrotate_global_config: True
+```
+
 ### logrotate_use_hourly_rotation
 
 Enable hourly rotation with cron.
