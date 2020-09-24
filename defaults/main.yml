@@ -6,7 +6,7 @@ logrotate_options: []
 # Path to the imclude files
 logrotate_include_dir: /etc/logrotate.d
 
-# package name to install logrotate.
+# Package name to install logrotate.
 logrotate_package: logrotate
 
 # Enable global configuration handling
