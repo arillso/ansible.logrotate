@@ -21,7 +21,7 @@
     - configuration
     - packages
 
-- name: 'install logrotate packages'
+- name: install logrotate packages
   become: true
   package:
     name: '{{ logrotate_package }}'
@@ -32,7 +32,7 @@
   tags:
     - packages
 
-- name: 'create logrotate configuration file'
+- name: create logrotate configuration file
   become: true
   template:
     src: 'etc/logrotate.conf.j2'
@@ -43,7 +43,7 @@
   tags:
     - configuration
 
-- name: 'create logrotate application configuration files'
+- name: create logrotate application configuration files
   become: true
   template:
     src: 'etc/logrotate.d/application.j2'
