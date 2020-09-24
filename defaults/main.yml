@@ -1,6 +1,4 @@
 ---
-# defaults file for arillso.logrotate
-
 # List of global options. If this is empty the default options of the
 # distribution are used.
 logrotate_options: []
