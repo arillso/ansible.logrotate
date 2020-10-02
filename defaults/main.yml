@@ -14,7 +14,7 @@ logrotate_package: logrotate
 # Enable hourly rotation with cron.
 logrotate_use_hourly_rotation: false
 
-# logroate for wtmp
+# logrotate for wtmp
 logrotate_wtmp:
   logs:
     - /var/log/wtmp
@@ -24,7 +24,7 @@ logrotate_wtmp:
     - create 0664 root utmp
     - rotate 1
 
-# logroate for btmp
+# logrotate for btmp
 logrotate_btmp:
   logs:
     - /var/log/btmp

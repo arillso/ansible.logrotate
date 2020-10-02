@@ -57,7 +57,7 @@ logrotate_package: logrotate
 
 ### default config
 
-logroate for wtmp
+logrotate for wtmp
 
 ```yml
 logrotate_wtmp:
@@ -70,7 +70,7 @@ logrotate_wtmp:
     - rotate 1
 ```
 
-logroate for btmp
+logrotate for btmp
 
 ```yml
 logrotate_btmp:
