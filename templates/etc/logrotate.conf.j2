@@ -15,16 +15,20 @@
 include {{ logrotate_include_dir }}
 
 # no packages own wtmp, or btmp -- we'll rotate them here
+{% if logrotate_wtmp_enable %}
 {{ logrotate_wtmp.logs | join(" ") }} {
 {% for option in logrotate_wtmp.options %}
     {{ option }}
 {% endfor %}
 }
+{% endif %}
 
+{% if logrotate_btmp_enable %}
 {{ logrotate_btmp.logs | join(" ") }} {
 {% for option in logrotate_btmp.options %}
     {{ option }}
 {% endfor %}
 }
+{% endif %}
 
 # system-specific logs may be configured here

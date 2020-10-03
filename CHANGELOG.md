@@ -3,6 +3,33 @@
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 and [human-readable changelog](https://keepachangelog.com/en/1.0.0/).
 
+## master
+
+### Fixed
+
+- Fix typos (imclude -> include)
+
+## 1.6.0
+
+### Fixed
+
+- Travis CI and molecule setup.
+- The src option requires state to be 'link' or 'hard' (breaking in Ansible
+  2.10) (Fixes: #14).
+
+### Changed
+
+- `logrotate_use_hourly_rotation` will no longer clean the symlink in
+  `cron.daily`.
+- Bumped tested distros versions.
+
+### Added
+
+- Options to enable or not wtmp/btmp config by [smutel](https://github.com/smutel)
+  via PR #25 (Fixes: #23).
+- Option to skip global configuration file by [fhsctv](https://github.com/fhsctv)
+  via PR #28.
+
 ## 1.5.2
 
 ### Fixed
