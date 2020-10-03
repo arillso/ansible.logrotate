@@ -113,10 +113,13 @@ logrotate_applications:
           - /var/log/apt/term.log
           - /var/log/apt/history.log
         options:
+          - su user group
           - rotate 12
           - monthly
           - missingok
           - notifempty
+        postrotate:
+          - /path/to/some/script
 ```
 
 ## Dependencies
