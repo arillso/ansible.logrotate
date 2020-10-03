@@ -1,7 +1,4 @@
 ---
-# vars file for arillso.logrotate
-
-# List of global options for the different systems.
 logrotate_distribution_options:
   - weekly
   - rotate 4

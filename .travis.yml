@@ -3,24 +3,15 @@ language: python
 services: docker
 
 env:
-  global:
-    - ROLE_NAME: logrotate
   matrix:
+    - MOLECULE_DISTRO: centos8
     - MOLECULE_DISTRO: centos7
-    - MOLECULE_DISTRO: centos6
+    - MOLECULE_DISTRO: ubuntu2004
     - MOLECULE_DISTRO: ubuntu1804
-    - MOLECULE_DISTRO: debian9
     - MOLECULE_DISTRO: debian10
 
 install:
-  - pip install molecule docker
-
-  - git clone https://github.com/arillso/tests molecule/default/lint
-
-before_script:
-  - cd ../
-  - mv ansible.$ROLE_NAME arillso.$ROLE_NAME
-  - cd arillso.$ROLE_NAME
+  - pip install molecule yamllint ansible-lint docker
 
 script:
   - molecule test
