@@ -2,7 +2,7 @@
 dependencies: []
 
 galaxy_info:
-  role_name: unbound
+  role_name: logrotate
   author: 'arillso'
   description: 'Ansible role for installs and configures logratet on Linux'
   license: MIT
