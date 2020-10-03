@@ -9,6 +9,10 @@ and [human-readable changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Fix typos (imclude -> include)
 
+### Changed
+
+- Extended example
+
 ## 1.6.0
 
 ### Fixed
