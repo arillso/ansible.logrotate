@@ -5,9 +5,12 @@ and [human-readable changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## master
 
+## 1.6.1
+
 ### Fixed
 
 - Fix typos (imclude -> include)
+- Fix role name
 
 ### Changed
 
