@@ -20,7 +20,7 @@ None.
 
 ### include files
 
-Path to the imclude files.
+Path to the include files.
 
 ```yml
 logrotate_include_dir: /etc/logrotate.d

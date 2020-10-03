@@ -3,7 +3,7 @@
 # distribution are used.
 logrotate_options: []
 
-# Path to the imclude files
+# Path to the include files
 logrotate_include_dir: /etc/logrotate.d
 
 # Package name to install logrotate.
