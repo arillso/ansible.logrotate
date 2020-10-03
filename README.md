@@ -18,9 +18,9 @@ None
 
 ## Role Variables
 
-### imclude files
+### include files
 
-Path to the imclude files.
+Path to the include files.
 
 ```yml
 logrotate_include_dir: /etc/logrotate.d
