@@ -1,6 +1,4 @@
 ---
-# defaults file for arillso.logrotate
-
 # List of global options. If this is empty the default options of the
 # distribution are used.
 logrotate_options: []
@@ -8,13 +6,17 @@ logrotate_options: []
 # Path to the imclude files
 logrotate_include_dir: /etc/logrotate.d
 
-# package name to install logrotate.
+# Package name to install logrotate.
 logrotate_package: logrotate
+
+# Enable global configuration handling
+logrotate_global_config: true
 
 # Enable hourly rotation with cron.
 logrotate_use_hourly_rotation: false
 
-# logroate for wtmp
+# Logrotate for wtmp
+logrotate_wtmp_enable: true
 logrotate_wtmp:
   logs:
     - /var/log/wtmp
@@ -24,7 +26,8 @@ logrotate_wtmp:
     - create 0664 root utmp
     - rotate 1
 
-# logroate for btmp
+# Logrotate for btmp
+logrotate_btmp_enable: true
 logrotate_btmp:
   logs:
     - /var/log/btmp

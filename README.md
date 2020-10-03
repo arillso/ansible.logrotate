@@ -4,7 +4,7 @@
 
 ## Description
 
-Installs and configures logrotate
+Installs and configures logrotate.
 
 ## Installation
 
@@ -14,11 +14,11 @@ Installs and configures logrotate
 
 ## Requirements
 
-None
+None.
 
 ## Role Variables
 
-### imclude files
+### include files
 
 Path to the imclude files.
 
@@ -26,9 +26,17 @@ Path to the imclude files.
 logrotate_include_dir: /etc/logrotate.d
 ```
 
+### logrotate_global_config
+
+Enable/disable global configuration of `/etc/logrotate.conf`.
+
+```yml
+logrotate_global_config: true
+```
+
 ### logrotate_use_hourly_rotation
 
-Enable hourly rotation with cron.
+Enable/disable hourly rotation with cron.
 
 ```yml
 logrotate_use_hourly_rotation: false
@@ -49,7 +57,7 @@ logrotate_options:
 
 ### Package
 
-package name to install logrotate.
+Package name to install `logrotate`.
 
 ```yml
 logrotate_package: logrotate
@@ -57,9 +65,10 @@ logrotate_package: logrotate
 
 ### default config
 
-logroate for wtmp
+Logrotate for `wtmp`:
 
 ```yml
+logrotate_wtmp_enable: true
 logrotate_wtmp:
   logs:
     - /var/log/wtmp
@@ -70,9 +79,10 @@ logrotate_wtmp:
     - rotate 1
 ```
 
-logroate for btmp
+Logrotate for `btmp`:
 
 ```yml
+logrotate_btmp_enable: true
 logrotate_btmp:
   logs:
     - /var/log/btmp
@@ -83,7 +93,7 @@ logrotate_btmp:
     - rotate 1
 ```
 
-### applications config
+### Applications config
 
 More log files can be added that will logorate.
 
