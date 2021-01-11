@@ -64,3 +64,9 @@
     mode: 0644
     state: link
   when: logrotate_use_hourly_rotation | bool
+
+- name: Remove symlink for hourly rotation
+  file:
+    path: "/etc/cron.hourly/logrotate"
+    state: absent
+  when: not logrotate_use_hourly_rotation | bool
