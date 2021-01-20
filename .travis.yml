@@ -11,7 +11,7 @@ env:
     - MOLECULE_DISTRO: debian10
 
 install:
-  - pip install molecule yamllint ansible-lint docker
+  - pip install molecule[docker] yamllint ansible-lint docker
 
 script:
   - molecule test
