@@ -48,12 +48,13 @@
   become: true
   template:
     src: 'etc/logrotate.d/application.j2'
-    dest: '/etc/logrotate.d/{{ item.name }}'
+    dest: '/etc/logrotate.d/{{ logrotate_applications_item.name }}'
     owner: root
     group: root
     mode: 0644
-  with_items:
-    - '{{ logrotate_applications }}'
+  loop: '{{ logrotate_applications }}'
+  loop_control:
+    loop_var: logrotate_applications_item
   tags:
     - configuration
 

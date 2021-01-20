@@ -1,6 +1,6 @@
 {{ ansible_managed | comment }}
 
-{% for definition in item.definitions %}
+{% for definition in logrotate_applications_item.definitions %}
 {{ definition.logs | join(" ") }} {
 {% for option in definition.options %}
     {{ option }}
