@@ -1,7 +1,7 @@
 {{ ansible_managed | comment }}
 
-# see "man logrotate" for details
 {% if logrotate_options | length > 0 %}
+# see "man logrotate" for details
 {% for option in logrotate_options %}
 {{ option }}
 {% endfor %}
@@ -14,8 +14,8 @@
 # packages drop log rotation information into this directory
 include {{ logrotate_include_dir }}
 
-# no packages own wtmp, or btmp -- we'll rotate them here
 {% if logrotate_wtmp_enable %}
+# no packages own wtmp -- we'll rotate them here
 {{ logrotate_wtmp.logs | join(" ") }} {
 {% for option in logrotate_wtmp.options %}
     {{ option }}
@@ -24,6 +24,7 @@ include {{ logrotate_include_dir }}
 {% endif %}
 
 {% if logrotate_btmp_enable %}
+# no packages own btmp -- we'll rotate them here
 {{ logrotate_btmp.logs | join(" ") }} {
 {% for option in logrotate_btmp.options %}
     {{ option }}
