@@ -1,0 +1,8 @@
+---
+logrotate_btmp_enable: false
+logrotate_wtmp_enable: false
+logrotate_distribution_options:
+  - weekly
+  - rotate 4
+  - create
+  - dateext
