@@ -61,6 +61,6 @@
   file:
     path: '/etc/cron.hourly/logrotate'
     src: '/etc/cron.daily/logrotate'
-    mode: 0644
+    mode: 0700
     state: link
   when: logrotate_use_hourly_rotation | bool
