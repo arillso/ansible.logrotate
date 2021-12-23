@@ -5,6 +5,10 @@ and [human-readable changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## master
 
+### Added
+
+- add prerotate option
+
 ## 1.6.1
 
 ### Fixed
