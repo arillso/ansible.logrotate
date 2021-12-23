@@ -120,6 +120,8 @@ logrotate_applications:
           - notifempty
         postrotate:
           - /path/to/some/script
+        prerotate:
+          - /path/to/some/script
 ```
 
 ## Dependencies

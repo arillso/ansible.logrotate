@@ -12,6 +12,13 @@
 {% endfor %}
     endscript
 {% endif %}
+{% if definition.prerotate|default([]) %}
+    prerotate
+{% for line in definition.prerotate %}
+        {{ line }}
+{% endfor %}
+    endscript
+{% endif %}
 {% if definition.preremove|default([]) %}
     preremove
 {% for line in definition.preremove %}
