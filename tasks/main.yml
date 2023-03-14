@@ -1,6 +1,6 @@
 ---
-- name: add OS specific variables
-  include_vars: '{{ loop_vars }}'
+- name: Add OS specific variables
+  ansible.builtin.include_vars: '{{ loop_vars }}'
   with_first_found:
     - files:
         - '{{ distribution }}-{{ distribution_version }}.yml'
@@ -21,9 +21,9 @@
     - configuration
     - packages
 
-- name: install logrotate packages
+- name: Install logrotate packages
   become: true
-  package:
+  ansible.builtin.package:
     name: '{{ logrotate_package }}'
     state: present
   register: register_install_package
@@ -32,9 +32,9 @@
   tags:
     - packages
 
-- name: create logrotate configuration file
+- name: Create logrotate configuration file
   become: true
-  template:
+  ansible.builtin.template:
     src: 'etc/logrotate.conf.j2'
     dest: '/etc/logrotate.conf'
     owner: root
@@ -44,9 +44,9 @@
     - configuration
   when: logrotate_global_config | bool
 
-- name: create logrotate application configuration files
+- name: Create logrotate application configuration files
   become: true
-  template:
+  ansible.builtin.template:
     src: 'etc/logrotate.d/application.j2'
     dest: '/etc/logrotate.d/{{ item.name }}'
     owner: root
@@ -57,8 +57,8 @@
   tags:
     - configuration
 
-- name: symlink for hourly rotation
-  file:
+- name: Symlink for hourly rotation
+  ansible.builtin.file:
     path: '/etc/cron.hourly/logrotate'
     src: '/etc/cron.daily/logrotate'
     mode: 0644
