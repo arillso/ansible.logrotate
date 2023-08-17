@@ -1,7 +1,6 @@
 ---
 # tasks file for arillso.logrotate
-
-- name: add OS specific variables
+- name: Main | Add OS specific variables
   include_vars: '{{ loop_vars }}'
   with_first_found:
     - files:
@@ -23,7 +22,7 @@
     - configuration
     - packages
 
-- name: 'install logrotate packages'
+- name: Main | Manage logrotate packages
   become: true
   package:
     name: '{{ logrotate_package }}'
@@ -34,7 +33,7 @@
   tags:
     - packages
 
-- name: 'create logrotate configuration file'
+- name: Main | Create logrotate configuration file
   become: true
   template:
     src: 'etc/logrotate.conf.j2'
@@ -45,7 +44,7 @@
   tags:
     - configuration
 
-- name: 'create logrotate application configuration files'
+- name: Main | Create logrotate application configuration files
   become: true
   template:
     src: 'etc/logrotate.d/application.j2'
@@ -58,8 +57,8 @@
   tags:
     - configuration
 
-- name: Symlink for hourly rotation
-  file:
+- name: Main | Symlink for hourly rotation
+  ansible.builtin.file:
     path: "/etc/cron.hourly/logrotate"
     src: "/etc/cron.daily/logrotate"
     state: "{{ 'link' if logrotate_use_hourly_rotation is defined | default('absent') }}"
