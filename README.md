@@ -14,7 +14,7 @@ Installs and configures logrotate
 
 ## Requirements
 
-None
+* The role requires `gathered_facts: true` to be set.
 
 ## Role Variables
 
